@@ -1,0 +1,79 @@
+﻿@model IEnumerable<myblogproject.Models.Makale>
+
+@{
+    ViewBag.Title = "Makale";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Makaleler</h2>
+
+<p>
+    @Html.ActionLink("Makale Ekle", "MakaleEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KullaniciID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Makale_İcerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Makale_Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Makale_Resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Begeni)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+
+            @Html.DisplayFor(modelItem => item.Kategori.KategoriAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Makale_İcerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Makale_Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Makale_Resim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Begeni)
+        </td>
+        
+        <td>
+            <span>
+                <a href="@Url.Action("MakaleDuzenle","Admin",new { id = item.MakaleID })"><span class="glyphicon glyphicon-pencil"></span></a>
+            </span>
+            @*@Html.ActionLink("Düzenle", "MakaleDuzenle", new { id=item.MakaleID }) |*@
+            @*@Html.ActionLink("Detaylar", "Details", new { id=item.MakaleID }) |*@
+            <span>
+                <a href="@Url.Action("MakaleSil","Admin",new { id = item.MakaleID })"><span class="glyphicon glyphicon-remove"></span></a>
+            </span>
+            @*@Html.ActionLink("Sil", "MakaleSil", new { id=item.MakaleID })*@
+        </td>
+    </tr>
+}
+
+</table>

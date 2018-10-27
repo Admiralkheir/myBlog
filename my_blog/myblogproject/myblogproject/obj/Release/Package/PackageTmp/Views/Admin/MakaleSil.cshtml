@@ -1,0 +1,81 @@
+﻿@model myblogproject.Models.Makale
+
+@{
+    ViewBag.Title = "MakaleSil";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Makale Sil</h2>
+
+<h3>Silmek İstediğinizden Emin Misiniz?</h3>
+<div>
+    <h4>Makale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kullanici.AdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullanici.AdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Makale_İcerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale_İcerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Makale_Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale_Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Makale_Resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale_Resim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Begeni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Begeni)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Makale Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri", "Index")
+        </div>
+    }
+</div>

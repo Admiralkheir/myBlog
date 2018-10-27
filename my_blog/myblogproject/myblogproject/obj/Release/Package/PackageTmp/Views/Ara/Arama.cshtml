@@ -1,0 +1,52 @@
+﻿@model IEnumerable<myblogproject.Models.Makale>
+
+@{
+    ViewBag.Title = "Arama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Arama</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kullanici.AdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Makale_Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Begeni)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori.KategoriAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kullanici.AdSoyad)
+        </td>
+        <td>
+           <a href="/Home/MakaleDetay/@item.MakaleID">@Html.DisplayFor(modelItem => item.Baslik)</a> 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Makale_Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Begeni)
+        </td>
+
+    </tr>
+}
+
+</table>

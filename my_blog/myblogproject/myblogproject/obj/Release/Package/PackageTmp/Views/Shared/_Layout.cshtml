@@ -1,0 +1,143 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admiralkheir's Blog</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/cssbloghome/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/cssbloghome/blog-home.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/Index/">Admiralkheir</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("Hakkımda","Hakkimda","Home")
+                    </li>
+                    @*<li>
+                        <a href="#">Services</a>
+                    </li>*@
+                    <li>
+                        @Html.ActionLink("İletişim","İletisim","Home")
+                    </li>
+                    @if (Session["KullaniciID"] != null)
+                    {
+                    <li>
+                        <a href="/Kullanici/Index/@Session["KullaniciID"]">@Session["GirisID"].ToString()</a>
+                    </li>
+                    <li>
+                        <a href="/Kullanici/Logout/">Logout</a>
+                    </li>
+                        if (Convert.ToInt32(Session["YetkiID"]) == 1)
+                        {
+                            <li>
+                                <a href="/Admin/Index/">Admin Paneli</a>
+                            </li>
+
+                        }
+
+                    }
+
+                    else
+                    {
+                        <li>
+                            <a href="/Kullanici/Login/">Giriş</a>
+                        </li>
+                        <li> @Html.ActionLink("Kayıt Ol", "KullaniciOlustur", "Kullanici")</li>
+                    }
+
+                    
+                    </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+               @*blog icerik*@
+               @RenderBody()
+            
+            </div>
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    @using (Html.BeginForm("Arama", "Ara", FormMethod.Post,new { enctype = "multipart/form-data" }))
+                    {<div class="input-group">
+                        <input id="Ara" name="Ara" type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" value="Ara" type="submit">
+                                <span class="glyphicon glyphicon-leaf"></span>
+                            </button>
+                        </span>
+                    </div> }
+                        
+                    <!-- /.input-group -->
+                </div>
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <div class="row">
+                    @{
+                        Html.RenderAction("KategoriPartial", "Home");
+
+                    }
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- Side Widget Well -->
+                @*<div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>*@
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Benim Hakkımda Herşey...</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="~/Scripts/jsbloghome/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/jsbloghome/bootstrap.min.js"></script>
+</body>
+</html>

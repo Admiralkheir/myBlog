@@ -1,0 +1,59 @@
+﻿@model myblogproject.Models.Kullanici
+
+@{
+    ViewBag.Title = "Detaylar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Kullanıcı</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yetki.YetkiHali)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yetki.YetkiHali)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parola)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parola)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GirisID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GirisID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Geri", "Index")
+</p>

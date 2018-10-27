@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="myblogproject" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Admiralkheir\\Desktop\\Eğitim-Projelerim\\MVC\ Eğitim\ Projelerim\\my_blog\\myblogproject\\myblogproject\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Admiralkheir\\Desktop\\Eğitim-Projelerim\\MVC\ Eğitim\ Projelerim\\my_blog\\myblogproject\\myblogproject\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="myblogDB-Web.config Connection String" description="" value="Server=tcp:myblogsunucu.database.windows.net,1433;Initial Catalog=blogproject;Persist Security Info=False;User ID=admiralkheir;Password=3zr7zt30X;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Admiralkheir\\Desktop\\Eğitim-Projelerim\\MVC\ Eğitim\ Projelerim\\my_blog\\myblogproject\\myblogproject\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='myblogDB']/@connectionString" />
+  </parameter>
+</parameters>

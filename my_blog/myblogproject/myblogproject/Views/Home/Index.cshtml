@@ -1,0 +1,56 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<myblogproject.Models.Makale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .btn-primary{
+        background-color:darkblue
+    }
+
+</style>
+
+<div class="col-md-8">
+   @foreach (var item in Model) {
+    <article>
+<h2>
+    <a href="/Home/MakaleDetay/@item.MakaleID">@item.Baslik</a>
+</h2>
+<p class="lead">
+    Yazan <a href="/Kullanici/Index/@item.Kullanici.KullaniciID">@item.Kullanici.GirisID</a>
+</p>
+<p><span class="glyphicon glyphicon-time"></span>Tarih:@String.Format("{0: dd MMMM yyyy}",item.Makale_Tarih)</p>
+<p><span class="glyphicon glyphicon-tree-conifer"></span> @item.Kategori.KategoriAd</p>
+<p><span class="glyphicon glyphicon-thumbs-up"></span> @item.Begeni</p>
+<hr>
+<img class="img-responsive" width="900" height="600" src="@item.Makale_Resim" alt="@item.Baslik">
+<hr>
+<p>
+    @if (item.Makale_İcerik.Length > 90)
+    {
+    <p>
+        @Html.Raw(item.Makale_İcerik.Substring(0,150))
+    </p>
+    }
+    else
+    {
+        <p>
+            @Html.Raw(item.Makale_İcerik);
+        </p>
+    }
+
+            <a class="btn btn-primary" href="/Home/MakaleDetay/@item.MakaleID">Devamı <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <hr>
+</article>
+   }
+    <div class="row">
+        <div class="col-md-8 text-center">
+            <div class="pager pagination-lg">
+                @Html.PagedListPager(Model , page=>Url.Action("Index",new { page}),PagedListRenderOptions.PageNumbersOnly)
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,131 @@
+﻿@model myblogproject.Models.Makale
+
+@{
+    ViewBag.Title = "MakaleDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .btn-primary {
+        background-color: darkblue   
+    }
+    .form-group{
+        background-color:darkblue
+    }
+</style>
+<div class="col-md-8">
+    <article>
+        <!-- Blog Post -->
+        <!-- Title -->
+        <h1>@Model.Baslik</h1>
+        <!-- Author -->
+        <p class="lead">
+            Yazan <a href="Kullanici/Index/@Model.Kullanici.KullaniciID">@Model.Kullanici.GirisID</a>
+        </p>
+        <hr>
+        <!-- Date/Time -->
+        <p><span class="glyphicon glyphicon-time"></span>Tarih:@String.Format("{0: dd MMMM yyyy}", Model.Makale_Tarih)</p>
+        <hr>
+        <!-- Preview Image -->
+        <img class="img-responsive" width="900" height="600" src="@Model.Makale_Resim" alt="">
+        <hr>
+        <!-- Post Content -->
+        <p>@Html.Raw(Model.Makale_İcerik)</p>
+        @foreach (var i in Model.AnahtarKelime)
+        {
+            <p><span class="glyphicon glyphicon-pushpin"></span>@i.AnahtarKelimeAd </p>
+
+        }
+        <hr>
+
+        <a class="btn btn-primary" href="/Home/Index">Geri <span class="glyphicon glyphicon-chevron-right"></span></a>
+    </article>
+
+    <div class="well">
+        <h4>Yorum:</h4>
+        <form role="form">
+            <div class="form-group">
+                <textarea id="makaleID" typeof="text" class="form-control" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" id="Begen" class="btn btn-primary">Begen</button>
+            <button type="submit" id="Yorum" class="btn btn-primary">Yorum Yap</button>
+        </form>
+    </div>
+    
+</div>
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        $.ajax({
+            url: "Home/Begen/",
+            data: { makeleID:@Model.MakaleID},
+            type: "POST"
+        });
+    })
+
+
+</script>
+
+
+        @*<div>
+                <h4>Makale</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Kategori.KategoriAd)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Kategori.KategoriAd)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Kullanici.AdSoyad)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Kullanici.AdSoyad)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Baslik)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Baslik)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Makale_İcerik)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Makale_İcerik)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Makale_Tarih)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Makale_Tarih)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Makale_Resim)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Makale_Resim)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Begeni)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Begeni)
+                    </dd>
+
+                </dl>
+            </div>*@

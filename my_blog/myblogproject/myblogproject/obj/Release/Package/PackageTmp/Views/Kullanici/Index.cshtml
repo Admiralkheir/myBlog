@@ -1,0 +1,53 @@
+﻿@model myblogproject.Models.Kullanici
+
+@{
+    ViewBag.Title = "Kullanici";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kullanici</h2>
+
+<div>
+    <h4>Kullanici</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yetki.YetkiHali)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yetki.YetkiHali)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GirisID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GirisID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <span>
+        <a href="@Url.Action("Duzenle","Kullanici",new { id = Model.KullaniciID })"><span class="glyphicon glyphicon-pencil">Düzenle</span></a>
+    </span>
+    @*@Html.ActionLink("Düzenle", "Edit", new { id = Model.KullaniciID })*@ |
+</p>

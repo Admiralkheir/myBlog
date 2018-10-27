@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="myblogDB-Web.config Connection String" description="myblogDB Connection String used in web.config by the application to access the database." defaultValue="data source=ADMIRALKHEIR-PC;initial catalog=blogproject;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Admiralkheir\\Desktop\\Eğitim-Projelerim\\MVC\ Eğitim\ Projelerim\\my_blog\\myblogproject\\myblogproject\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='myblogDB']/@connectionString" />
+  </parameter>
+</parameters>

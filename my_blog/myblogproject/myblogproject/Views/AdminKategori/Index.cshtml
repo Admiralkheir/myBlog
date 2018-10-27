@@ -1,0 +1,39 @@
+﻿@model IEnumerable<myblogproject.Models.Kategori>
+
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<p>
+    @Html.ActionLink("Kategori Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriAd)
+        </td>
+        <td>
+            <span>
+                <a href="@Url.Action("Edit","AdminKategori",new { id = item.KategoriID })"><span class="glyphicon glyphicon-pencil"></span></a>
+            </span>
+            @*@Html.ActionLink("Kategori Düzenle", "Edit", new { id=item.KategoriID }) |*@
+            <span>
+                <a href="@Url.Action("Delete","AdminKategori",new { id = item.KategoriID })"><span class="glyphicon glyphicon-remove"></span></a>
+            </span>
+            @*@Html.ActionLink("Kategori Sil", "Delete", new { id=item.KategoriID })*@
+        </td>
+    </tr>
+}
+
+</table>
