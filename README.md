@@ -1,2 +1,2 @@
 # myBlog
-Technologies:C#, ASP.NET MVC, MSSQL, HTML
+Technologies: C#, ASP.NET MVC, MSSQL, HTML
